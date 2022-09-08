@@ -67,9 +67,7 @@ export const GithubContextProvider = (props) => {
       .then(successfulResponse, unSuccesfullResponse);
 
     function successfulResponse(response) {
-    
-        dispatch({ type: 'GET_USERS', payload: response.data.items });
-      
+      dispatch({ type: 'GET_USERS', payload: response.data.items });
     }
     function unSuccesfullResponse(error) {
       dispatch({ type: 'ERROR', payload: error.message });
@@ -87,7 +85,7 @@ export const GithubContextProvider = (props) => {
     dispatch,
     getUser,
   };
-  
+
   return (
     <GithubContext.Provider value={contextValue}>
       {props.children}

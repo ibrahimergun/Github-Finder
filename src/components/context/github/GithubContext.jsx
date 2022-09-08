@@ -15,23 +15,23 @@ export const GithubContextProvider = (props) => {
     alertMessage: null,
   });
 
-  useEffect(() => {
-    getResult();
-  }, []);
+  // useEffect(() => {
+  //   getResult();
+  // }, []);
 
-  const getResult = async () => {
-    dispatch({ type: 'SET_LOADING' });
-    await axios
-      .get(`${process.env.REACT_APP_GITHUB_URL}/users`)
-      .then(successfulResponse, unSuccesfullResponse);
+  // const getResult = async () => {
+  //   dispatch({ type: 'SET_LOADING' });
+  //   await axios
+  //     .get(`${process.env.REACT_APP_GITHUB_URL}/users`)
+  //     .then(successfulResponse, unSuccesfullResponse);
 
-    function successfulResponse(response) {
-      dispatch({ type: 'GET_USERS', payload: response.data });
-    }
-    function unSuccesfullResponse(error) {
-      dispatch({ type: 'ERROR', payload: error.message });
-    }
-  };
+  //   function successfulResponse(response) {
+  //     dispatch({ type: 'GET_USERS', payload: response.data });
+  //   }
+  //   function unSuccesfullResponse(error) {
+  //     dispatch({ type: 'ERROR', payload: error.message });
+  //   }
+  // };
 
   const getUser = async (login) => {
     dispatch({ type: 'SET_LOADING' });

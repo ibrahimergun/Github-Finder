@@ -16,7 +16,7 @@ function UserItem(props) {
           <h2 className='card-title'>{props.userData.login}</h2>
           <Link
             className='text-base-content text-opacity-4'
-            to={`/users/${props.userData.login}`}
+            to={`/user/${props.userData.login}`}
           >
             Visit Profile
           </Link>

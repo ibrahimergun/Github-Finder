@@ -5,11 +5,10 @@ import UserItem from './UserItem';
 import GithubContext from '../context/github/GithubContext';
 
 function UserResults() {
-  const { loading, users, alertMessage } = useContext(GithubContext);
+  const { loading, users } = useContext(GithubContext);
 
   return (
     <div>
-      {!!alertMessage  && <h1>{alertMessage}</h1>}
       {loading ? (
         <Spinner />
       ) : (

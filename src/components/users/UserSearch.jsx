@@ -7,7 +7,6 @@ function UserSearch() {
   const [text, setText] = useState('');
 
   const { users, dispatch, searchUsers } = useContext(GithubContext);
-  //   const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setText(e.target.value);
 
@@ -15,13 +14,9 @@ function UserSearch() {
     e.preventDefault();
 
     if (text === '') {
-      // setAlert('Please enter something', 'error');
+      dispatch({ type: 'ERROR', payload: 'Please enter something. Empty Field!!!' });
     } else {
-      
-      const users = await searchUsers(text);
-      //dispatch({ type: 'GET_USERS', payload: users });
-
-      //searchUsers(text);
+      await searchUsers(text);
       setText('');
     }
   };

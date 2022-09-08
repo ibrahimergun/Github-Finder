@@ -14,9 +14,11 @@ const githubReducer = (state, action) => {
         repos: action.payload.repos,
         loading: false,
       };
+
     case 'CLEAR_USERS':
       return {
         ...state,
+        alertMessage: null,
         users: [],
       };
 
@@ -27,6 +29,7 @@ const githubReducer = (state, action) => {
         alertMessage: action.payload,
         loading: false,
       };
+      
     case 'REMOVE_ERROR':
       return {
         ...state,
@@ -38,6 +41,7 @@ const githubReducer = (state, action) => {
       return {
         ...state,
         loading: true,
+        alertMessage: null,
       };
 
     default:

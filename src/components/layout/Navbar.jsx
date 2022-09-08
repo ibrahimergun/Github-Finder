@@ -1,7 +1,12 @@
+import { useContext } from 'react';
+import GithubContext from '../context/github/GithubContext';
+
 import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 function Navbar(props) {
+  const { dispatch } = useContext(GithubContext);
+
   return (
     <nav className='navbar mb-12 shadow-lg bg-neutral text-neutral-content'>
       <div className='container mx-auto'>
@@ -14,7 +19,13 @@ function Navbar(props) {
 
         <div className='flex-1 px-2 mx-2'>
           <div className='flex justify-end'>
-            <Link to='/' className='btn btn-ghost btn-sm rounded-btn  '>
+            <Link
+              to='/'
+              className='btn btn-ghost btn-sm rounded-btn  '
+              onClick={() => {
+                dispatch({ type: 'REMOVE_ERROR' });
+              }}
+            >
               Home
             </Link>
             <Link to='/about' className='btn btn-ghost btn-sm rounded-btn'>

@@ -15,23 +15,23 @@ export const GithubContextProvider = (props) => {
     alertMessage: null,
   });
 
-  useEffect(() => {
-    getResult();
-  }, []);
+  // useEffect(() => {
+  //   getResult();
+  // }, []);
 
-  const getResult = async () => {
-    dispatch({ type: 'SET_LOADING' });
-    await axios
-      .get(`${process.env.REACT_APP_GITHUB_URL}/users`)
-      .then(successfulResponse, unSuccesfullResponse);
+  // const getResult = async () => {
+  //   dispatch({ type: 'SET_LOADING' });
+  //   await axios
+  //     .get(`${process.env.REACT_APP_GITHUB_URL}/users`)
+  //     .then(successfulResponse, unSuccesfullResponse);
 
-    function successfulResponse(response) {
-      dispatch({ type: 'GET_USERS', payload: response.data });
-    }
-    function unSuccesfullResponse(error) {
-      dispatch({ type: 'ERROR', payload: error.message });
-    }
-  };
+  //   function successfulResponse(response) {
+  //     dispatch({ type: 'GET_USERS', payload: response.data });
+  //   }
+  //   function unSuccesfullResponse(error) {
+  //     dispatch({ type: 'ERROR', payload: error.message });
+  //   }
+  // };
 
   const getUser = async (login) => {
     dispatch({ type: 'SET_LOADING' });
@@ -67,9 +67,7 @@ export const GithubContextProvider = (props) => {
       .then(successfulResponse, unSuccesfullResponse);
 
     function successfulResponse(response) {
-    
-        dispatch({ type: 'GET_USERS', payload: response.data.items });
-      
+      dispatch({ type: 'GET_USERS', payload: response.data.items });
     }
     function unSuccesfullResponse(error) {
       dispatch({ type: 'ERROR', payload: error.message });
@@ -87,7 +85,7 @@ export const GithubContextProvider = (props) => {
     dispatch,
     getUser,
   };
-  
+
   return (
     <GithubContext.Provider value={contextValue}>
       {props.children}

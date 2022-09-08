@@ -80,11 +80,12 @@ export const GithubContextProvider = (props) => {
   };
 
   const contextValue = {
-    loading: state.loading,
-    users: state.users,
-    user: state.user,
-    repos: state.repos,
-    alertMessage: state.alertMessage,
+    ...state,
+    // loading: state.loading,
+    // users: state.users,
+    // user: state.user,
+    // repos: state.repos,
+    // alertMessage: state.alertMessage,
     searchUsers,
     dispatch,
     getUser,
